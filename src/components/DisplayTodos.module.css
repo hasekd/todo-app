@@ -1,0 +1,45 @@
+.card {
+  background-color: white;
+  border-radius: 5px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+  height: 50px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  padding: 0 20px 0 20px;
+}
+
+.toggle {
+  position: relative;
+  left: 70px;
+  color: white;
+  background-color: green;
+}
+
+p {
+  color: black;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.delete {
+  background-color: red;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.5;
+}

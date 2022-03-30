@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import CreateTodo from "./components/CreateTodo";
+import DisplayTodos from "./components/DisplayTodos";
 
 function App() {
+  const [todos, setTodos] = useState([]);
+  const [enteredFilter, setEnteredFilter] = useState("all");
+  const [filteredTodos, setFilteredTodos] = useState([]);
+
+  const filterHandler = (e) => {
+    setEnteredFilter(e.target.value);
+  };
+
+  useEffect(() => {
+    switch (enteredFilter) {
+      case "completed":
+        setFilteredTodos(todos.filter((todo) => todo.complete === true));
+        break;
+      case "uncompleted":
+        setFilteredTodos(todos.filter((todo) => todo.complete === false));
+        break;
+      default:
+        setFilteredTodos(todos);
+    }
+  }, [todos, enteredFilter]);
+
+  const addTodos = (todoData) => {
+    setTodos((prevTodos) => {
+      return [...prevTodos, todoData];
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CreateTodo filterHandler={filterHandler} onAddTodos={addTodos} />
+      <DisplayTodos
+        filteredTodos={filteredTodos}
+        todos={todos}
+        setTodos={setTodos}
+      />
+    </>
   );
 }
 
