@@ -2,21 +2,27 @@
   background-color: white;
   border-radius: 5px;
   width: 300px;
-  display: flex;
-  justify-content: space-between;
   margin: 10px auto;
   height: 50px;
-  border: 1px solid black;
   display: flex;
   align-items: center;
+  border: none;
   padding: 0 20px 0 20px;
+  overflow: auto;
+  word-break: break-all;
+}
+
+.butt {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  flex: 1;
 }
 
 .toggle {
-  position: relative;
-  left: 70px;
   color: white;
   background-color: green;
+  margin: 0 8px;
 }
 
 p {

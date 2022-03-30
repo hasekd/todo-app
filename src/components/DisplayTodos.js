@@ -28,18 +28,20 @@ function DisplayTodos(props) {
           <p className={`${todo.complete ? classes.completed : ""}`}>
             {todo.name}
           </p>
-          <button
-            onClick={() => toggleTodo(todo.id)}
-            className={classes.toggle}
-          >
-            <FontAwesomeIcon icon={faCheck} />
-          </button>
-          <button
-            className={classes.delete}
-            onClick={() => deleteTodo(todo.id)}
-          >
-            <FontAwesomeIcon icon={faTrashCan} />
-          </button>
+          <div className={classes.butt}>
+            <button
+              onClick={() => toggleTodo(todo.id)}
+              className={classes.toggle}
+            >
+              <FontAwesomeIcon icon={faCheck} />
+            </button>
+            <button
+              className={classes.delete}
+              onClick={() => deleteTodo(todo.id)}
+            >
+              <FontAwesomeIcon icon={faTrashCan} />
+            </button>
+          </div>
         </div>
       ))}
     </>
